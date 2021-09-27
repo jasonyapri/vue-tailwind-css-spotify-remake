@@ -8,7 +8,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        'green': '#1DB954',
+        'play': '#1DB954',
+        'sign-up': '#5892DA',
         'dark': '#121212',
         'card': '#181818',
         'light': '#282828',

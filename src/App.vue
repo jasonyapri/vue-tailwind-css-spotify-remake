@@ -66,10 +66,10 @@
               <h2 class="pt-4 text-xs text-lightest font-bold uppercase tracking-widest hover:underline cursor-pointer mb-3">See all</h2>
             </div>
             <div class="w-full flex flex-wrap">
-              <div v-for="(topPlaylist, index) in topPlaylists" :key="index" class="p-2 w-56">
+              <div v-for="(topPlaylist, index) in topPlaylists" :key="index" class="p-2 w-48">
                 <div class="bg-card hover:bg-light cursor-pointer w-full h-auto rounded-lg p-5 relative">
                   <div class="absolute w-full h-ful flex items-end justify-end p-12 mt-10 opacity-0 hover:opacity-100">
-                    <div class="bg-green text-white rounded-full h-10 w-10 flex items-center justify-center">
+                    <div class="bg-play text-white rounded-full h-10 w-10 flex items-center justify-center">
                       <span class="material-icons">play_arrow</span>
                     </div>
                   </div>
@@ -86,7 +86,12 @@
             </div>
             <div class="w-full flex flex-wrap">
               <div v-for="(chart, index) in charts" :key="index" class="p-2 w-48">
-                <div class="bg-card hover:bg-light cursor-pointer w-full h-auto rounded-lg p-5">
+                <div class="bg-card hover:bg-light cursor-pointer w-full h-auto rounded-lg p-5 relative">
+                  <div class="absolute w-full h-ful flex items-end justify-end p-12 mt-10 opacity-0 hover:opacity-100">
+                    <div class="bg-play text-white rounded-full h-10 w-10 flex items-center justify-center">
+                      <span class="material-icons">play_arrow</span>
+                    </div>
+                  </div>
                   <img :src="chart.src" class="h-auto w-full shadow mb-5">
                   <h1 class="text-md font-semibold text-white mb-1 truncate">{{ chart.title }}</h1>
                   <p class="text-sm text-lightest leading-4 line-clamp-2">{{ chart.caption }}</p>
@@ -95,13 +100,21 @@
             </div>
           </div>
           <div class="px-8 pt-3 pb-6">
-            <div class="mb-3">
-              <h1 class="text-2xl font-bold text-white hover:underline cursor-pointer">Focus</h1>
-              <span class="text-sm text-lightest">Music to help you concentrate.</span>
+            <div class="mb-3 flex items-center justify-between">
+              <div>
+                <h1 class="text-2xl font-bold text-white hover:underline cursor-pointer">Focus</h1>
+                <span class="text-sm text-lightest">Music to help you concentrate.</span>
+              </div>
+              <span class="pt-4 text-xs text-lightest font-bold uppercase tracking-widest hover:underline cursor-pointer mb-3">See all</span>
             </div>
             <div class="w-full flex flex-wrap">
               <div v-for="(chart, index) in charts" :key="index" class="p-2 w-48">
-                <div class="bg-card hover:bg-light cursor-pointer w-full h-auto rounded-lg p-5">
+                <div class="bg-card hover:bg-light cursor-pointer w-full h-auto rounded-lg p-5 relative">
+                  <div class="absolute w-full h-ful flex items-end justify-end p-12 mt-10 opacity-0 hover:opacity-100">
+                    <div class="bg-play text-white rounded-full h-10 w-10 flex items-center justify-center">
+                      <span class="material-icons">play_arrow</span>
+                    </div>
+                  </div>
                   <img :src="chart.src" class="h-auto w-full shadow mb-5">
                   <h1 class="text-md font-semibold text-white mb-1 truncate">{{ chart.title }}</h1>
                   <p class="text-sm text-lightest leading-4 line-clamp-2">{{ chart.caption }}</p>
@@ -113,8 +126,14 @@
       </main>
     </div>
     <!-- footer -->
-    <footer class="w-full bg-gradient-to-r from-pink-700 via-purple-500 to-blue-400" style="height: 8vh;">
-      
+    <footer class="w-full bg-gradient-to-r from-pink-700 via-purple-500 to-blue-400 flex items-center justify-between px-10" style="height: 8vh;">
+      <div class="text-white">
+        <h1 class="text-sm uppercase tracking-wider">Preview of Spotify</h1>
+        <span class="text-md font-semibold">Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.</span>
+      </div>
+      <div>
+        <button class="text-sm bg-white text-sign-up uppercase font-bold tracking-widest px-12 py-2.5 rounded-full transform hover:scale-105">Sign Up Free</button>
+      </div>
     </footer>
   </div>
 </template>
