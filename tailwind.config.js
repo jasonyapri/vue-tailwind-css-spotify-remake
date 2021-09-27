@@ -10,10 +10,11 @@ module.exports = {
       colors: {
         'play': '#1DB954',
         'sign-up': '#5892DA',
-        'dark': '#121212',
         'card': '#181818',
+        'scrollbar': '#898989',
         'light': '#282828',
         'lightest': '#B3B3B3',
+        'dark': '#121212',
         'darkest': '#191414',
       },
     },
@@ -23,5 +24,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/line-clamp'),
+    require('tailwind-scrollbar'),
   ],
 }

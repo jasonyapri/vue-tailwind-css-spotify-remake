@@ -38,9 +38,9 @@
         </div>
       </aside>
       <!-- main content -->
-      <main class="w-full h-full relative overflow-y-scroll">
+      <main class="w-full h-full relative overflow-y-scroll scrollbar scrollbar-thin scrollbar-thumb-scrollbar scrollbar-track-transparent">
         <!-- header -->
-        <div class="w-full sticky top-0 py-4 px-8 flex items-center justify-between bg-dark">
+        <div class="w-full sticky top-0 py-4 px-8 flex items-center justify-between bg-dark z-50">
           <div class="flex items-center space-x-4">
             <button class="rounded-full bg-black w-8 h-8 p-1 text-lightest">
               <span class="material-icons">chevron_left</span>

@@ -1,24 +1,17 @@
-# vue-tailwind-css-spotify-remake
+# Spotify Webpage Remake
 
-## Project setup
-```
-npm install
-```
+## Screenshot
+![Screenshot](public/img/final_output.png "Screenshot")
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Author
+Jason Yapri
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Technology
+Vue JS and Tailwind CSS
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Run command
+`npm run serve`
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Misc. Dependencies
+@tailwindcss/line-clamp
+tailwind-scrollbar
