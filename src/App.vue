@@ -14,15 +14,15 @@
         </div>
         <div class="mx-7 mt-7 space-y-4">
           <button class="flex items-center justify-start opacity-75 hover:opacity-100">
-            <img src="addNew.png" class="h-6 w-6 mr-3 rounded-sm"/>
+            <img src="/img/addNew.png" class="h-6 w-6 mr-3 rounded-sm"/>
             <span class="text-lightest text-sm font-semibold">Create Playlist</span>
           </button>
           <button class="flex items-center justify-start opacity-75 hover:opacity-100">
-            <img src="liked.png" class="h-6 w-6 mr-3 rounded-sm"/>
+            <img src="/img/liked.png" class="h-6 w-6 mr-3 rounded-sm"/>
             <span class="text-lightest text-sm font-semibold">Liked Songs</span>
           </button>
           <button class="flex items-center justify-start opacity-75 hover:opacity-100">
-            <img src="episodes.png" class="h-6 w-6 mr-3 rounded-sm"/>
+            <img src="/img/episodes.png" class="h-6 w-6 mr-3 rounded-sm"/>
             <span class="text-lightest text-sm font-semibold">Your Episodes</span>
           </button>
           <!-- <div class="h-px w-full bg-light my-3"></div> -->
@@ -40,7 +40,7 @@
       <!-- main content -->
       <main class="w-full h-full relative overflow-y-scroll">
         <!-- header -->
-        <div class="w-full sticky top-0 py-4 px-8 flex items-center justify-between">
+        <div class="w-full sticky top-0 py-4 px-8 flex items-center justify-between bg-dark">
           <div class="flex items-center space-x-4">
             <button class="rounded-full bg-black w-8 h-8 p-1 text-lightest">
               <span class="material-icons">chevron_left</span>
@@ -50,19 +50,71 @@
             </button>
           </div>
           <div class="relative flex items-center justify-end space-x-8">
-            <button class="uppercase text-white text-sm font-bold tracking-widest">Sign Up</button>
-            <button class="uppercase bg-white text-black text-sm font-bold px-8 py-2 rounded-full tracking-widest">Log In</button>
+            <button class="uppercase text-white text-sm font-bold tracking-widest transform hover:scale-105">Sign Up</button>
+            <button class="uppercase bg-white text-black text-sm font-bold px-8 py-2 rounded-full tracking-widest transform hover:scale-105">Log In</button>
             <!-- <div class="absolute bg-light w-full rounded mt-32">
               <button class="w-full text-sm py-2 text-white hover text-white border-b border-lightest opacity-75 hover:opacity-100">Account</button>
               <button class="w-full text-sm py-2 text-white hover text-white opacity-75 hover:opacity-100">Log out</button>
             </div> -->
           </div>
         </div>
+        <!-- cards -->
+        <div class="bg-gradient-to-b from-light via-dark to-dark">
+          <div class="px-8 pt-3 pb-6">
+            <div class="flex items-center justify-between mb-3">
+              <h1 class="text-2xl font-bold text-white hover:underline cursor-pointer">Barisan Playlist Andalan</h1>
+              <h2 class="pt-4 text-xs text-lightest font-bold uppercase tracking-widest hover:underline cursor-pointer mb-3">See all</h2>
+            </div>
+            <div class="w-full flex flex-wrap">
+              <div v-for="(topPlaylist, index) in topPlaylists" :key="index" class="p-2 w-56">
+                <div class="bg-card hover:bg-light cursor-pointer w-full h-auto rounded-lg p-5 relative">
+                  <div class="absolute w-full h-ful flex items-end justify-end p-12 mt-10 opacity-0 hover:opacity-100">
+                    <div class="bg-green text-white rounded-full h-10 w-10 flex items-center justify-center">
+                      <span class="material-icons">play_arrow</span>
+                    </div>
+                  </div>
+                  <img :src="topPlaylist.src" class="h-auto w-full shadow mb-5">
+                  <h1 class="text-md font-semibold text-white mb-1 truncate">{{ topPlaylist.title }}</h1>
+                  <p class="text-sm text-lightest leading-4 line-clamp-2">{{ topPlaylist.caption }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-8 pt-3 pb-6">
+            <div class="flex items-center justify-between mb-3">
+              <h1 class="text-2xl font-bold text-white hover:underline cursor-pointer">Charts</h1>
+            </div>
+            <div class="w-full flex flex-wrap">
+              <div v-for="(chart, index) in charts" :key="index" class="p-2 w-48">
+                <div class="bg-card hover:bg-light cursor-pointer w-full h-auto rounded-lg p-5">
+                  <img :src="chart.src" class="h-auto w-full shadow mb-5">
+                  <h1 class="text-md font-semibold text-white mb-1 truncate">{{ chart.title }}</h1>
+                  <p class="text-sm text-lightest leading-4 line-clamp-2">{{ chart.caption }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-8 pt-3 pb-6">
+            <div class="mb-3">
+              <h1 class="text-2xl font-bold text-white hover:underline cursor-pointer">Focus</h1>
+              <span class="text-sm text-lightest">Music to help you concentrate.</span>
+            </div>
+            <div class="w-full flex flex-wrap">
+              <div v-for="(chart, index) in charts" :key="index" class="p-2 w-48">
+                <div class="bg-card hover:bg-light cursor-pointer w-full h-auto rounded-lg p-5">
+                  <img :src="chart.src" class="h-auto w-full shadow mb-5">
+                  <h1 class="text-md font-semibold text-white mb-1 truncate">{{ chart.title }}</h1>
+                  <p class="text-sm text-lightest leading-4 line-clamp-2">{{ chart.caption }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
     <!-- footer -->
     <footer class="w-full bg-gradient-to-r from-pink-700 via-purple-500 to-blue-400" style="height: 8vh;">
-
+      
     </footer>
   </div>
 </template>
@@ -80,13 +132,25 @@ export default {
       ],
       selectedID: 'home',
       playlists: [
-        { name:  'drive'},
-        { name:  'zhu'},
         { name:  'All New Indie'},
         { name:  'Mellow'},
         { name:  'Classic Road Trip Songs'},
         { name:  'Lana Del Rey Radio'},
-      ]
+      ],
+      topPlaylists: [
+        { src: '/img/playlists/playlist-1.jpg', title: 'Puncak Klasemen', caption: 'Deretan musik Indonesia terpopuler zaman sekarang' },
+        { src: '/img/playlists/playlist-2.jpg', title: 'Women of Indonesia', caption: 'Artis wanita tanah air yang memperkaya seni Indonesia' },
+        { src: '/img/playlists/playlist-3.jpg', title: 'Naik Daun', caption: 'Lagu-lagu terkini yang sedang banyak didengar' },
+        { src: '/img/playlists/playlist-4.jpg', title: 'Pop Rising Indonesia', caption: 'Lagu-lagu teranyar yang akan menjadi' },
+        { src: '/img/playlists/playlist-5.jpg', title: 'Fresh Finds Indonesian Songs', caption: 'Temukan beragam musik terbaru dari Indonesia' },
+        { src: '/img/playlists/playlist-6.jpg', title: 'Ke Seberang', caption: 'Talenta tanah air yang dapat menyeberang' },
+        { src: '/img/playlists/playlist-7.jpg', title: 'Alunan Kesukaan', caption: 'Lagu-lagu kesukaan dari beberapa waktu' },
+      ],
+      charts: [
+        { src: '/img/charts/chart-1.jpg', title: 'Top 50 - Indonesia', caption: 'Your daily update of the most played tracks in Indonesia' },
+        { src: '/img/charts/chart-2.jpg', title: 'Top 50 - Global', caption: 'Your daily upadte of the most played tracks globally' },
+        { src: '/img/charts/chart-3.jpg', title: 'Hot Hits Indonesia', caption: 'Hits terpanas dari LISA, Coldplay, BTS serta artis lainnya' },
+      ],
     }
   }
 }

@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         'green': '#1DB954',
         'dark': '#121212',
+        'card': '#181818',
         'light': '#282828',
         'lightest': '#B3B3B3',
         'darkest': '#191414',
@@ -19,5 +20,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }
