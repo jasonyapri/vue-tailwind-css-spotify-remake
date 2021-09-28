@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "build-css": "tailwindcss build -i src/index.css -o public/css/index.css",
-    "build-jit-css": "postcss src/index.css -o public/css/index.css --watch",
+    "build-jit-css": "postcss src/index.css -o public/css/index.css -w --verbose",
     "build-prod-css": "NODE_ENV=production postcss src/index.css -o public/css/index.css"
   },
   "dependencies": {
